@@ -12,6 +12,7 @@ A white-first, animation-rich static site. No build step and no dependencies: op
 | `billing-software.html` | Billing & POS Software |
 | `haccp-software.html` | HACCP Food Safety Software |
 | `ecommerce-website.html` | E-commerce Website |
+| `food-delivery-app.html` | Food Delivery App (customer app, rider app, admin portal — Home2Local) |
 | `custom-software.html` | Custom Software Development |
 | `contact.html` | Contact / Book a demo (supports `?product=Billing` etc. to pre-select) |
 
@@ -35,6 +36,9 @@ A white-first, animation-rich static site. No build step and no dependencies: op
 - Product mockups are HTML/CSS illustrations — they can be swapped for real screenshots later.
 
 ## Assets
+
+- `assets/img/screens/` — real product screenshots (billing dashboard with the Vetrik logo, Home2Local delivery admin portal, Chef2Comply HACCP dashboard)
+- `assets/img/home2local-logo.png` — Home2Local logo
 
 - `assets/img/logo-*.png` — transparent versions of the logo for light (`dark-text`) and dark (`white-text`) backgrounds
 - `assets/img/mark.png` — logo mark only; `favicon.png`

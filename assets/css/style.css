@@ -239,6 +239,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .menu-open .mobile-menu a:nth-child(4) { transition-delay: .3s; }
 .menu-open .mobile-menu a:nth-child(5) { transition-delay: .35s; }
 .menu-open .mobile-menu a:nth-child(6) { transition-delay: .4s; }
+.menu-open .mobile-menu a:nth-child(7) { transition-delay: .45s; }
 .mobile-menu .btn { margin-top: 24px; align-self: flex-start; }
 .menu-open { overflow: hidden; }
 
@@ -612,7 +613,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 250px; border-radius: 38px; padding: 10px; background: var(--dark);
   box-shadow: var(--shadow-lg), inset 0 0 0 2px #2b302d; position: relative;
 }
-.phone__screen { border-radius: 30px; overflow: hidden; background: #fff; height: 500px; position: relative; font-size: 11px; }
+.phone__screen { color: var(--ink); border-radius: 30px; overflow: hidden; background: #fff; height: 500px; position: relative; font-size: 11px; }
 .phone__notch { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 80px; height: 22px; border-radius: 20px; background: var(--dark); z-index: 2; }
 .store { padding: 42px 14px 14px; display: grid; gap: 12px; }
 .store__top { display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 14px; }
@@ -628,6 +629,40 @@ ul { margin: 0; padding: 0; list-style: none; }
 .product__body b { display: block; font-size: 11px; }
 .product__body span { color: var(--brand-700); font-weight: 800; }
 .store__cart { position: absolute; left: 14px; right: 14px; bottom: 14px; height: 42px; border-radius: 12px; background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; font-weight: 700; }
+
+/* Real product screenshots in a browser frame */
+.shot img { display: block; width: 100%; height: auto; background: #fff; }
+.pcard .shot { box-shadow: var(--shadow); }
+
+/* Food delivery (Home2Local) phone mockups */
+.h2l { gap: 10px; }
+.h2l__logo { height: 34px; width: auto; }
+.h2l__loc { font-size: 10px; font-weight: 700; color: #36140f; }
+.h2l .store__search { background: #fbf3ee; }
+.h2l__cats { display: flex; gap: 6px; overflow: hidden; }
+.h2l__cats span { flex: none; padding: 5px 10px; border-radius: 999px; background: #fbf3ee; font-weight: 700; font-size: 10px; color: #36140f; }
+.h2l__cats span.on { background: #a82c07; color: #fff; }
+.h2l__shop { display: flex; align-items: center; gap: 10px; padding: 8px; border: 1px solid var(--line); border-radius: 12px; }
+.h2l__shop i { width: 40px; height: 40px; border-radius: 10px; flex: none; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+.h2l__shop div { flex: 1; min-width: 0; }
+.h2l__shop b, .h2l__shop small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.h2l__shop b { font-size: 11.5px; color: #36140f; }
+.h2l__shop small { color: var(--muted); font-size: 10px; }
+.h2l__shop > span { font-weight: 800; font-size: 10px; color: #a82c07; }
+.h2l__cta { background: #a82c07; }
+.rider { background: #f3f1ec; }
+.rider__map { position: absolute; inset: 0; width: 100%; height: 100%; }
+.rider__route { animation: dash 1.6s linear infinite; }
+@keyframes dash { to { stroke-dashoffset: -28; } }
+.rider__sheet { position: absolute; left: 10px; right: 10px; bottom: 10px; background: #fff; border-radius: 18px; padding: 14px; display: grid; gap: 6px; box-shadow: 0 -10px 30px -10px rgba(0,0,0,.2); }
+.rider__sheet b { font-size: 12px; }
+.rider__btns { display: grid; grid-template-columns: 1fr 2fr; gap: 8px; margin-top: 6px; }
+.rider__btns span { height: 36px; border-radius: 10px; display: grid; place-items: center; font-weight: 700; background: var(--bg-soft); }
+.rider__btns span.on { background: #36140f; color: #fff; }
+.brand-badge { display: inline-flex; align-items: center; gap: 12px; padding: 10px 16px 10px 10px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.brand-badge img { height: 44px; width: auto; }
+.brand-badge small { display: block; color: var(--muted); font-weight: 600; font-size: 12px; }
+.brand-badge b { font-size: 15px; }
 
 /* Receipt mockup */
 .receipt {
@@ -677,6 +712,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .story__screen.is-active { opacity: 1; transform: none; pointer-events: auto; }
 .story__screen .window { height: 100%; }
+.story__screen .window.shot { height: auto; }
 .story__progress { position: absolute; left: -28px; top: 20px; bottom: 20px; width: 3px; border-radius: 3px; background: var(--line); }
 .story__progress span { position: absolute; inset: 0; background: var(--brand); transform-origin: 0 0; transform: scaleY(0); border-radius: inherit; }
 @media (max-width: 900px) {
