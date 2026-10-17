@@ -866,34 +866,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero--story .scroll-hint { margin-top: 30px; }
 @media (max-width: 860px) { .hero__facts { grid-template-columns: 1fr 1fr; } }
 
-/* Product card artwork (replaces screenshots on the home page) */
-.art { position: relative; aspect-ratio: 1 / 1; max-width: 420px; margin: 0 auto; display: grid; place-items: center; }
-.art__ring { position: absolute; inset: 8%; border-radius: 50%; border: 1.5px dashed var(--line-2); animation: spin 40s linear infinite; }
-.art__ring--2 { inset: 24%; border-style: solid; border-color: var(--brand-100); animation-duration: 60s; animation-direction: reverse; }
-.art__core {
-  position: relative; width: 38%; aspect-ratio: 1; border-radius: 30%; display: grid; place-items: center;
-  background: linear-gradient(145deg, var(--brand-400), var(--brand-600)); color: var(--ink);
-  box-shadow: 0 30px 60px -20px rgba(94, 133, 38, .6), inset 0 2px 0 rgba(255, 255, 255, .4);
-  transform: scale(.6) rotate(-12deg); opacity: 0; transition: transform 1s var(--ease), opacity .6s;
-}
-.art.is-in .art__core { transform: none; opacity: 1; }
-.art__chip {
-  position: absolute; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
-  padding: 10px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line);
-  box-shadow: var(--shadow); font-size: 13px; font-weight: 700; color: var(--ink);
-  opacity: 0; transform: translateY(14px) scale(.9); transition: opacity .6s var(--ease), transform .8s var(--ease);
-}
-.art__chip svg { color: var(--brand-700); }
-.art__chip--1 { top: 10%; left: 2%; transition-delay: .3s; }
-.art__chip--2 { top: 44%; right: -2%; transition-delay: .45s; }
-.art__chip--3 { bottom: 10%; left: 10%; transition-delay: .6s; }
-.art.is-in .art__chip { opacity: 1; transform: none; animation: bob 6s ease-in-out infinite; }
-.art.is-in .art__chip--2 { animation-delay: -2s; }
-.art.is-in .art__chip--3 { animation-delay: -4s; }
-.art--dark .art__ring { border-color: rgba(255, 255, 255, .18); }
-.art--dark .art__ring--2 { border-color: rgba(154, 196, 86, .3); }
-@media (max-width: 860px) { .art { max-width: 340px; } .art__chip { font-size: 12px; padding: 8px 12px; } }
-
 /* Milestones teaser */
 .milestones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; padding-top: 34px; margin: 0; list-style: none; }
 .milestones::before {
@@ -1015,8 +987,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .flag { display: flex; width: 42px; height: 28px; border-radius: 5px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
 .flag i { flex: 1; }
 .flag--in { flex-direction: column; }
-.co__mark { height: 34px; width: auto; }
-.co__mono { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: #169b62; color: #fff; font-weight: 800; font-size: 14px; letter-spacing: .02em; }
 .link-line { position: relative; width: 60px; height: 2px; background: rgba(255, 255, 255, .2); }
 .link-line span { position: absolute; inset: 0; background: var(--brand); transform: scaleX(0); transform-origin: 0 50%; transition: transform 1.2s var(--ease) .5s; }
 .story__screen.is-active .link-line span { transform: scaleX(1); }
@@ -1024,6 +994,33 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%;
   display: grid; place-items: center; background: var(--brand); color: var(--ink); font-style: normal;
 }
+
+.co__logo { height: 38px; width: auto; max-width: 100%; object-fit: contain; }
+
+/* Scene 6: Tulasi Foundation */
+.scene--gold { background: radial-gradient(circle at 50% 0%, #fffaf0, #f6efdc); border-color: #eadfbf; }
+.tulasi { display: grid; gap: 22px; justify-items: center; width: 100%; }
+.tulasi__logo { width: min(64%, 300px); height: auto; }
+.tulasi__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 440px; }
+.tcard { position: relative; overflow: hidden; display: grid; gap: 4px; justify-items: start; padding: 16px; border-radius: 16px; background: #fff; border: 1px solid #eadfbf; box-shadow: var(--shadow); }
+.tcard__icon { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: #1f4d36; color: #f0d58a; margin-bottom: 6px; }
+.tcard b { font-size: 15px; }
+.tcard small { color: var(--muted); font-weight: 600; font-size: 12px; margin-bottom: 6px; }
+.tcard__build { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: #f3ead2; overflow: hidden; }
+.tcard__build i { position: absolute; top: 0; bottom: 0; width: 40%; background: #c9a24a; animation: building 1.8s var(--ease-in-out) infinite; }
+@keyframes building { 0% { left: -40%; } 100% { left: 100%; } }
+
+/* Scene 8: team of nine */
+.team9 { display: grid; gap: 18px; justify-items: center; text-align: center; }
+.team9__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.member {
+  width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
+  border: 1.5px dashed rgba(255, 255, 255, .25); color: rgba(255, 255, 255, .3);
+  transition: background .5s var(--ease), color .5s, border-color .5s, transform .6s var(--ease); transition-delay: var(--d);
+}
+.member:first-child { background: var(--brand); border: 1.5px solid var(--brand); color: var(--ink); }
+.story__screen.is-active .member { background: var(--brand); border: 1.5px solid var(--brand); color: var(--ink); transform: scale(1.04); }
+.grow__title span { display: block; font-size: .55em; font-weight: 700; color: rgba(255, 255, 255, .7); margin-top: 6px; letter-spacing: -.01em; }
 
 /* Scene 5: Thenkadal */
 .sea { position: absolute; left: 0; right: 0; bottom: 0; height: 38%; z-index: -1; overflow: hidden; }
@@ -1068,6 +1065,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   .link-line { width: 34px; }
   .link-line i { width: 30px; height: 30px; }
   .kitchens__grid { gap: 6px; }
+  .member { width: 40px; height: 40px; }
+  .team9 { gap: 12px; }
+  .tcard { padding: 12px; }
+  .tcard b { font-size: 13px; }
   .order-card { bottom: 14px; padding: 10px 12px; }
   .order-card img { height: 36px; }
 }
