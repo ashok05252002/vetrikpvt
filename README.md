@@ -8,7 +8,8 @@ A white-first, animation-rich static site. No build step and no dependencies: op
 
 | File | Page |
 | --- | --- |
-| `index.html` | Home — hero, products showcase, why Vetrik, process, industries |
+| `index.html` | Home: story-led hero, client logos, products, journey teaser, why Vetrik, process, industries |
+| `about.html` | About us: our journey from 2024 told as a scroll story (7 chapters) |
 | `billing-software.html` | Billing & POS Software |
 | `haccp-software.html` | HACCP Food Safety Software |
 | `ecommerce-website.html` | E-commerce Website |
@@ -32,7 +33,7 @@ A white-first, animation-rich static site. No build step and no dependencies: op
 
 - Phone number `+91 00000 00000`, WhatsApp link `wa.me/910000000000`, email `hello@vetrik.in` and office address (header/footer of every page + `contact.html`)
 - The contact form currently opens the visitor's email app (`mailto:`). Connect it to a form backend (e.g. Formspree, your own API) to receive enquiries directly.
-- **Client logos** (home page carousel) are placeholders in `assets/img/clients/client-01.svg` … `client-08.svg`. Replace each file with the real logo (keep the same name), or change the `src`/`alt` in the "CLIENTS" section of `index.html` (e.g. to `.png` files). Logos show in grey and turn full colour on hover. Transparent-background PNG or SVG works best.
+- **Client logos** (home and about pages) are in `assets/img/clients/`: Thenkadal Meenavan Seafoods, 1000 Vibes, Home2Local (`assets/img/home2local-logo.png`) and a **text placeholder for Tulasi Foundation** (`tulasi-foundation.svg`). Replace that file with the real logo when available. Add or remove clients in `CLIENT_LOGOS` in the build script, or edit the CLIENTS section of `index.html`/`about.html`.
 - Product mockups are HTML/CSS illustrations — they can be swapped for real screenshots later.
 
 ## Assets

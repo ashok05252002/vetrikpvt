@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="48" viewBox="0 0 180 48">
-  <!-- Placeholder client logo. Replace with the real logo (keep the same file name) or update the <img> src in index.html. -->
-  <path d="M8 38V10h11a9 9 0 0 1 0 18h-4v10z" fill="#e7a53a"/><circle cx="32" cy="32" r="6" fill="#e7a53a"/>
-  <text x="46" y="31" font-family="Plus Jakarta Sans, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="-0.5" fill="#1b211d">Client 04</text>
-</svg>
