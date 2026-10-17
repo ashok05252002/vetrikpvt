@@ -33,7 +33,7 @@ A white-first, animation-rich static site. No build step and no dependencies: op
 
 - Phone number `+91 00000 00000`, WhatsApp link `wa.me/910000000000`, email `hello@vetrik.in` and office address (header/footer of every page + `contact.html`)
 - The contact form currently opens the visitor's email app (`mailto:`). Connect it to a form backend (e.g. Formspree, your own API) to receive enquiries directly.
-- **Client logos** (home and about pages) are in `assets/img/clients/`: Thenkadal Meenavan Seafoods, 1000 Vibes, Home2Local (`assets/img/home2local-logo.png`) and Tulasi Foundation (`tulasi-foundation.png`). The CCD partner logo is `ccd-logo.png` (used on the About page). To add or remove a client, edit the `logo-card` lines in the CLIENTS section of `index.html` and `about.html` (each logo appears several times so the loop stays seamless).
+- **Client logos** appear as a logo wall (one card per client with a short "what we did" caption) on the home and About pages. Files are in `assets/img/clients/` (1000 Vibes, CCD, Thenkadal Meenavan, Tulasi Foundation) plus `assets/img/home2local-logo.png`. To add a client, copy one `<li class="client">` in the CLIENTS section of `index.html` and `about.html`.
 - Product mockups are HTML/CSS illustrations — they can be swapped for real screenshots later.
 
 ## Assets
