@@ -405,6 +405,42 @@
     });
   }
 
+  /* ---------- Live sensor log (Chef2Comply page) ---------- */
+  $$("[data-live-log]").forEach((panel) => {
+    if (reduced) return;
+    const sensors = $$("[data-sensor]", panel);
+    const log = $("[data-log]", panel);
+    let visible = false;
+    let turn = 0;
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; }).observe(panel);
+    }
+    const pad = (n) => String(n).padStart(2, "0");
+    const hhmm = (d) => `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    // starting rows read as "a minute or two ago" in the visitor's own time
+    $$("time", log).forEach((t, i) => { t.textContent = hhmm(new Date(Date.now() - (i + 1) * 60000)); });
+    setInterval(() => {
+      if (!visible || document.hidden) return;
+      const el = sensors[turn++ % sensors.length];
+      const min = parseFloat(el.dataset.min);
+      const max = parseFloat(el.dataset.max);
+      const valueEl = $("[data-value]", el);
+      // drift a little, staying inside the sensor's normal range
+      const next = clamp(parseFloat(valueEl.textContent) + (Math.random() - 0.5) * 0.6, min, max);
+      valueEl.textContent = next.toFixed(1);
+      el.classList.add("is-tick");
+      setTimeout(() => el.classList.remove("is-tick"), 600);
+
+      const now = new Date();
+      const row = document.createElement("li");
+      row.className = "is-new";
+      row.innerHTML = `<time>${hhmm(now)}</time><span></span><b>${next.toFixed(1)}°C</b><i>✓ Auto</i>`;
+      row.querySelector("span").textContent = el.dataset.name;
+      log.prepend(row);
+      while (log.children.length > 4) log.lastElementChild.remove();
+    }, 2400);
+  });
+
   /* ---------- Footer year ---------- */
   $$("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
 })();
