@@ -211,6 +211,26 @@
   }
   stories.forEach((s) => setStory(s, 0));
 
+  // Phones: instead of one sticky picture, each chapter gets its own copy of its picture
+  // (CSS shows these only on small screens and hides the sticky panel there).
+  stories.forEach((s) => {
+    s.steps.forEach((step, i) => {
+      const src = s.screens[i];
+      if (!src) return;
+      const copy = src.cloneNode(true);
+      copy.classList.add("is-active", "story__inline");
+      copy.setAttribute("aria-hidden", "true");
+      $$("[id]", copy).forEach((n) => {
+        const id = n.id;
+        const nid = id + "-m" + i;
+        n.id = nid;
+        $$('[href="#' + id + '"]', copy).forEach((r) => r.setAttribute("href", "#" + nid));
+      });
+      $$("[data-inview]", copy).concat(copy).forEach((n) => n.classList.add("is-in"));
+      step.prepend(copy);
+    });
+  });
+
   /* ---------- Scroll-linked transforms ---------- */
   const tilts = $$("[data-tilt-scroll]");
   const parallaxes = $$("[data-parallax]");
@@ -394,12 +414,14 @@
         `Company: ${data.get("company") || "-"}`,
         `Email: ${data.get("email")}`,
         `Phone: ${data.get("phone") || "-"}`,
-        `Interested in: ${data.getAll("interest").join(", ") || "-"}`,
+        `${form.getAttribute("data-subject") ? "App" : "Interested in"}: ${data.getAll("interest").join(", ") || "-"}`,
         "",
         String(data.get("message") || ""),
       ].join("\n");
       const to = form.getAttribute("data-mailto");
-      const subject = `Enquiry from ${data.get("name")} — ${data.getAll("interest").join(", ") || "General"}`;
+      const subject = form.getAttribute("data-subject")
+        ? `${form.getAttribute("data-subject")} — ${data.get("name")}`
+        : `Enquiry from ${data.get("name")} — ${data.getAll("interest").join(", ") || "General"}`;
       form.classList.add("is-sent");
       window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
@@ -439,6 +461,16 @@
       log.prepend(row);
       while (log.children.length > 4) log.lastElementChild.remove();
     }, 2400);
+  });
+
+  /* ---------- Pricing: monthly / yearly toggle ---------- */
+  $$("[data-pricing]").forEach((root) => {
+    $$("[data-period-btn]", root).forEach((btn) => {
+      btn.addEventListener("click", () => {
+        root.setAttribute("data-period", btn.dataset.periodBtn);
+        $$("[data-period-btn]", root).forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      });
+    });
   });
 
   /* ---------- Footer year ---------- */

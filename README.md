@@ -1,6 +1,6 @@
-# Vetrik Private Limited — Website
+# Vetrik Solution Private Limited — Website
 
-Company website for **Vetrik Private Limited** — *Turning vision to mission.*
+Company website for **Vetrik Solution Private Limited** — *Turning vision to mission.*
 
 A white-first, animation-rich static site. No build step and no dependencies: open `index.html` in a browser, or deploy the folder to any static host (GitHub Pages, Netlify, Vercel, cPanel, …).
 
