@@ -1315,3 +1315,20 @@ ul { margin: 0; padding: 0; list-style: none; }
   .cta .btn-row .btn { flex: 1 1 auto; justify-content: center; }
   .footer__bottom { flex-direction: column; gap: 12px; }
 }
+
+/* ---------- Nagercoil page ---------- */
+.card.card { display: block; }
+a.card { color: inherit; }
+.hl-grid--2 { grid-template-columns: 1fr 1fr; }
+.hl-grid--2 .hl:not(:nth-child(3n + 1)) { padding-left: 0; border-left: 0; }
+.hl-grid--2 .hl:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--line); }
+@media (max-width: 560px) { .hl-grid--2 .hl:nth-child(even) { padding-left: 0; border-left: 0; } }
+.price-mini { background: var(--dark); color: #fff; border-radius: var(--radius-xl); padding: clamp(24px, 3vw, 34px); box-shadow: var(--shadow-lg); display: grid; gap: 10px; }
+.price-mini__row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 18px; border-radius: 16px; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); }
+.price-mini__row span { font-weight: 700; font-size: 17px; }
+.price-mini__row em { font-style: normal; font-size: 11px; font-weight: 800; padding: 3px 8px; margin-left: 6px; border-radius: 999px; background: #f2b33d; color: var(--ink); vertical-align: middle; }
+.price-mini__row b { font-size: 28px; letter-spacing: -.03em; }
+.price-mini__row small { font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, .6); margin-left: 4px; }
+.price-mini__row.is-featured { border-color: var(--brand); background: rgba(154, 196, 86, .12); }
+.price-mini p { color: rgba(255, 255, 255, .65); font-size: 14px; margin-top: 6px; }
+.price-mini__trial { justify-self: start; padding: 8px 14px; border-radius: 999px; background: var(--brand); color: var(--ink); font-weight: 800; font-size: 14px; }
